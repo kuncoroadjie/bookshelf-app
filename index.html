@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <main>
+        <div class="col-1">
+            <section class="title-section">
+                <div class="title">
+                    <h1>Bookshelf App</h1>
+                    <p>Cara mudah kelola buku. Jangan lupa membaca hari ini.</p>
+                </div>
+                <div class="info">
+                    <i class="fa fa-user-circle" onclick="openModal()"></i>
+                    <p>Jumlah Buku : <span class="books-total">0</span></p>
+                </div>
+            </section>
+    
+            <section class="input-section">
+                <form action="#"id="formBook">
+                    <h4>Buku apa yang ingin kamu baca ?</h4>
+                    <div class="form-group">
+                        <label for="book-title"><i class="fa fa-pen">&nbsp;</i>Judul Buku</label>
+                        <input type="text" id="book-title" name="book-title" placeholder="contoh : Terpatri" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author"><i class="fa fa-user-alt">&nbsp;</i>Penulis Buku</label>
+                        <input type="text" id="author" name="author" placeholder="contoh : Kuncoro Adji" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year"><i class="fa fa-calendar">&nbsp;</i>Tahun Terbit</label>
+                        <input type="number" id="year" min="1900" max="2099" value="2022">                       
+                    </div>
+                    <input type="submit" class="btn-submit" name="Submit" value="Submit">
+                </form>
+            </section>
+        </div>
+        
+        <div class="col-2">
+            <section class="search-section">
+                <form action=# id="searchBar">
+                    <span class="fa fa-search" onclick="searchBooks()"></span>
+                    <input id="searchBook" type="text" placeholder="Contoh : Terpatri" required>
+                </form>
+            </section>
+            
+            <div class="book-shelf">
+                <section id="incompleteBookList" class="book-list">
+                    <div class="title-box">
+                        <div class="img">
+                            <img src="./assets/img/red-bookmark.png" alt="">
+                            <p id="count-incompleted">0</p>
+                        </div>
+                        <h3>Belum selesai dibaca</h3>
+                    </div>
+                    <div class="list-book" id="incomplete-books">
+                        <!-- <article class="book-item">
+                            <div class="book-data">  
+                                <h3>${book.title}</h3>
+                                <p>Penulis : ${book.author}</p>
+                                <p>Tahun : ${book.year}</p>
+                            </div>
+                            <button class="check-button fas fa-check-circle"></button>
+                            <button class="trash-button fas fa-trash-alt"></button>
+                        </article> -->
+                    </div>
+                </section>
+                <section id="completeBookList" class="book-list">
+                    <div class="title-box">
+                        <div class="img">
+                            <img src="./assets/img/blue-bookmark.png" alt="">
+                            <p id="count-completed">0</p>
+                        </div>
+                        <h3>Sudah dibaca</h3>
+                    </div>
+                    <div class="list-book" id="complete-books">
+                        <!-- <article class="book-item">
+                            <div class="book-data">  
+                                <h3>${book.title}</h3>
+                                <p>Penulis : ${book.author}</p>
+                                <p>Tahun : ${book.year}</p>
+                            </div>
+                            <button class="undo-button fas fa-undo-alt"></button>
+                            <button class="trash-button fas fa-trash-alt"></button>
+                        </article> -->
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="modal" class="modal-profile">    
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="fas fa-window-close" onclick="closeModal()"></span>
+                    <h2><i class="fas fa-user-circle">&nbsp;</i>Profile</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="avatar">
+                        <img src="./assets/img/my-photo.jpg" alt="profile-photo">
+                    </div>
+                    <div class="description">
+                        <h3>Ridho Kuncoro Adji Wibowo</h3>
+                        <p>Student | GNU/Linux user</p>
+                        <p>Trenggalek, East Java</p><br>
+                        <p>I took "Pengembang front-end dan react" program at SIB Dicoding</p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://github.com/kuncoroadjie" class="fab fa-github"></a>
+                        <a href="https://instagram.com/kuncr_" class="fab fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="modal-confirm-delete">    
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Confirm Delete</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah kamu yakin menghapus item ini ?</p>
+                    <div class="action">
+                        <button class="btn btn-cancel" onclick="closeModal()">Cancel</button>
+                        <button class="btn btn-confirm" onclick="closeModal()">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
