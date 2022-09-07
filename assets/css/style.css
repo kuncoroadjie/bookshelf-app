@@ -291,3 +291,24 @@ main{
     background: #F76C6C;
 }
 
+/* Responsive */
+@media (max-width: 1200px) {
+    .book-shelf .fas{
+        font-size: 22px;
+    }
+    .trash-button{
+        margin-left: 0px;
+    }
+}
+@media (max-width: 960px) {
+    main{
+    flex-wrap: wrap;
+    flex-direction: column;
+    }
+    .book-shelf{
+        flex-direction: column;
+    }
+    .input-section .form-group input:focus{
+        transform: scale(1.01);
+    }
+}
