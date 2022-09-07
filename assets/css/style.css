@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --color-blue: #55a1f8;
+    --color-blue-alt: #374785;
+    --color-red: #F76C6C;
+    --color-yellow: #FBDD5B;
+    --bg-secondary: #f0f8ff; 
+    --color-green: #50e757;
+  }
+body{
+    background-image: url(../img/bg.jpg);
+}
+main{
+    background: #d9e6f3dd;
+    /* background: #d9e6f3; */
+    min-height: 100vh;
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.title-section,
+.input-section,
+.search-section,
+.book-list{
+    background: #FFF;
+    height: fit-content;
+    border-radius: 7px;
+    padding: 15px 20px;
+    box-shadow: 2px 3px 5px #aaa;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.col-1{
+    width: 100%;
+    flex-basis: 30%;
+}
+.title-section{
+    text-align: center;
+}
+.title-section .info i{
+    font-size: 18pt;
+    color:#7cb3f3;
+    margin: 5px;
+}
+.title-section .info p{
+    margin-top: 15px;
+    font-weight: 500;
+}
+.title-section .info .books-total{
+    color: #7cb3f3;
+}
+.title-section .info i:hover{
+    color: #5995da;
+}
+#formBook{
+    width: 100%;
+}
+#formBook h4{
+    text-align: center;
+}
+.input-section .form-group{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    color: #55a1f8;
+    font-weight: 500;
+}
+.input-section .form-group input{
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    transition: 0.1s;
+}
+.input-section .form-group input:focus{
+    outline: none;
+    border-bottom: 2px solid #4a9fff;
+    transform: scale(1.05);
+}
+.input-section .form-group .fa{
+    color:#4a9fff;
+}
+.input-section .btn-submit{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: #7cb3f3;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 5px solid #5995da;
+}
+.input-section .btn-submit:hover{
+    background: var(--color-blue);
+    border-bottom: 5px solid #2576d3;
+}
+.input-section .btn-submit:active{
+    border: none;
+    position: relative;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.col-2{
+    width: 100%;
+    flex-basis: 70%;
+}
+#searchBar{
+    width: 100%;
+    display: flex;
+}
+#searchBar .fa-search{
+    cursor: pointer;
+    color: #7cb3f3;
+    font-size: 1.2em;
+}
+#searchBook, #searchBook:focus{
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+.book-shelf{
+    display: flex;
+    gap: 20px;
+}
+.book-list{
+    flex-basis: 50%;
+}
+.title-box{
+    display: flex;
+    width: 80%;
+}
+.title-box .img{
+    position: relative;
+    top: -15px;
+    right: 10%;
+}
+.title-box .img img{
+    width: 80px;
+}
+.title-box .img p{
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFF;
+}
+.title-box h3{
+    margin-top: 10px;
+}
+
+/* Book Item */
+.list-book{
+    width: 100%;
+}
+.book-item {
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    background: #eff5fc;
+    display: flex;
+    align-items: center;
+    border: 2px solid #555;
+    font-size: 0.9em;
+}
+
+/* Book item button action */
+.book-shelf .fas{
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.check-button {
+    color: #50e757;
+    margin-left: auto;
+}
+
+.trash-button {
+    color: #F76C6C;
+    margin-left: 15px;
+}
+
+.undo-button {
+    color: #888;
+    margin-left: auto;
+}
+
+.check-button:focus, .trash-button {
+    outline: none;
+}
+
+
+/* Modal */
+.modal-profile, .modal-confirm-delete{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+.modal-active{
+    visibility: visible;
+    opacity: 1;
+}
+.modal-content{
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    width: 380px;
+    text-align: center;
+}
+.modal-header{
+    color: #2576d3;
+}
+.modal-header .fa-window-close{
+    font-size: 1.7em;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #F76C6C;
+}
+.modal-header .fa-window-close:hover{
+    color: #e93a3a;
+}
+.modal-body {
+    padding-top: 20px;
+    font-size: 0.9em;
+}
+.modal-body .avatar img{
+    width: 150px;
+    border-radius: 80px;
+}
+.modal-body .description h3{
+    color: #2576d3;
+}
+.modal-body .description p{
+    font-weight: 500;
+}
+.modal-body .description p:nth-child(5){
+    font-size: 1em;
+    font-weight: 400;
+}
+.modal-body .social-media a{
+    margin: 15px 5px;
+    font-size: 1.9em;
+    color: #000;
+    text-decoration: none;
+}
+.modal-body .social-media a:hover{
+    color: #55a1f8;
+}
+.modal-body .btn{
+    background: #2576d3;
+    width: 80px;
+    height: 30px;
+    border-radius: 5px;
+    margin: 30px 10px 0 10px;
+    border: none;
+    color: white;
+}
+.modal-body .btn-confirm{
+    background: #7cb3f3;
+}
+.modal-body .btn-cancel{
+    background: #F76C6C;
+}
+
