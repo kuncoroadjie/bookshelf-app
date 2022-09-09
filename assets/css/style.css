@@ -8,18 +8,15 @@
 }
 :root {
     --color-blue: #55a1f8;
-    --color-blue-alt: #374785;
+    --color-blue-alt: #2576d3;
     --color-red: #F76C6C;
-    --color-yellow: #FBDD5B;
-    --bg-secondary: #f0f8ff; 
-    --color-green: #50e757;
+    --color-green: #50E757;
   }
 body{
     background-image: url(../img/bg.jpg);
 }
 main{
     background: #d9e6f3dd;
-    /* background: #d9e6f3; */
     min-height: 100vh;
     padding: 30px 50px;
     display: flex;
@@ -49,7 +46,7 @@ main{
 }
 .title-section .info i{
     font-size: 18pt;
-    color:#7cb3f3;
+    color:var(--color-blue);
     margin: 5px;
 }
 .title-section .info p{
@@ -57,7 +54,7 @@ main{
     font-weight: 500;
 }
 .title-section .info .books-total{
-    color: #7cb3f3;
+    color: var(--color-blue);
 }
 .title-section .info i:hover{
     color: #5995da;
@@ -72,7 +69,7 @@ main{
     display: flex;
     flex-direction: column;
     margin: 20px 0;
-    color: #55a1f8;
+    color: var(--color-blue);
     font-weight: 500;
 }
 .input-section .form-group input{
@@ -87,7 +84,7 @@ main{
     transform: scale(1.05);
 }
 .input-section .form-group .fa{
-    color:#4a9fff;
+    color:var(--color-blue);
 }
 .input-section .btn-submit{
     width: 100%;
@@ -102,7 +99,7 @@ main{
 }
 .input-section .btn-submit:hover{
     background: var(--color-blue);
-    border-bottom: 5px solid #2576d3;
+    border-bottom: 5px solid var(--color-blue-alt);
 }
 .input-section .btn-submit:active{
     border: none;
@@ -121,7 +118,7 @@ main{
 }
 #searchBar .fa-search{
     cursor: pointer;
-    color: #7cb3f3;
+    color: var(--color-blue);
     font-size: 1.2em;
 }
 #searchBook, #searchBook:focus{
@@ -188,12 +185,12 @@ main{
     cursor: pointer;
 }
 .check-button {
-    color: #50e757;
+    color: var(--color-green);
     margin-left: auto;
 }
 
 .trash-button {
-    color: #F76C6C;
+    color: var(--color-red);
     margin-left: 15px;
 }
 
@@ -228,14 +225,14 @@ main{
 }
 .modal-content{
     position: relative;
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px;
     padding: 30px;
     width: 380px;
     text-align: center;
 }
 .modal-header{
-    color: #2576d3;
+    color: var(--color-blue-alt);
 }
 .modal-header .fa-window-close{
     font-size: 1.7em;
@@ -257,7 +254,7 @@ main{
     border-radius: 80px;
 }
 .modal-body .description h3{
-    color: #2576d3;
+    color: var(--color-blue-alt);
 }
 .modal-body .description p{
     font-weight: 500;
@@ -273,10 +270,10 @@ main{
     text-decoration: none;
 }
 .modal-body .social-media a:hover{
-    color: #55a1f8;
+    color: var(--color-blue);
 }
 .modal-body .btn{
-    background: #2576d3;
+    background: var(--color-blue-alt);
     width: 80px;
     height: 30px;
     border-radius: 5px;
