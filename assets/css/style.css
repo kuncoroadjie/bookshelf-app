@@ -115,6 +115,7 @@ main{
 #searchBar{
     width: 100%;
     display: flex;
+    overflow: hidden;
 }
 #searchBar .fa-search{
     cursor: pointer;
@@ -307,5 +308,13 @@ main{
     }
     .input-section .form-group input:focus{
         transform: scale(1.01);
+    }
+    #searchBook, #searchBook:focus{
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 500px) {
+    .title-box h3{
+        font-size: 1em;
     }
 }
