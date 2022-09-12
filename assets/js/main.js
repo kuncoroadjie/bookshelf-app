@@ -12,17 +12,34 @@ const books = [];
 const RENDER_EVENT = 'render-book';
 
 document.addEventListener('DOMContentLoaded', function () {
-    const submitForm = document.getElementById('formBook');
+  const submitForm = document.getElementById('formBook');
     submitForm.addEventListener('submit', function (event) {
       event.preventDefault();
       addBook();
       submitForm.reset();
     });
+    const searchForm = document.getElementById('searchBook');
+    searchForm.addEventListener('keyup', searchBookItem); 
+    
     if (isStorageExist()) {
       loadDataFromStorage();
     }
 });
 
+function searchBookItem(event) {
+  const searchItem = event.target.value.toLowerCase();
+  let itemList = document.querySelectorAll('.book-data');
+  
+  itemList.forEach((item) => {
+    const itemValue = item.textContent.toLowerCase();
+
+    if (itemValue.indexOf(searchItem) != -1) {
+      item.parentElement.setAttribute('style', 'display: flex;');
+    } else {
+      item.parentElement.setAttribute('style', 'display: none !important;');
+    }
+  });
+}
 function addBook() {
     const bookTitle = document.getElementById('book-title').value;
     const author = document.getElementById('author').value;
@@ -218,54 +235,6 @@ function findTitleBook(){
       }else{
         console.log('horesdkdksjd');
       }
-  }
-
-}
-
-function searchBooks() {
-  const inputSearchValue = document.getElementById("searchBook").value.toLowerCase();
-  const incompleteBookShelf = document.getElementById("incomplete-books");
-  const completeBookShelf = document.getElementById("complete-books");
-  incompleteBookShelf.innerHTML = "";
-  completeBookShelf.innerHTML = "";
-  
-  if (inputSearchValue == "") {
-     document.dispatchEvent(new Event(RENDER_EVENT));
-     return;
-  }
-
-  for (const book of books) {
-     if (book.title.toLowerCase().includes(inputSearchValue)) {
-        if (book.isComplete == false) {
-           let el = `
-           <article class="book-item">
-            <div class="book-data">  
-              <h3>${book.title}</h3>
-              <p>Penulis : ${book.author}</p>
-              <p>Tahun : ${book.year}</p>
-            </div>
-            <button class="check-button fas fa-check-circle" onclick="addBookToComplete(${book.id})"></button>
-            <button class="trash-button fas fa-trash-alt" onclick="removeBookFromCompleted(${book.id}")></button>
-           </article>
-           `;
-
-           incompleteBookShelf.innerHTML += el;
-        } else {
-           let el = `
-           <article class="book-item">
-              <div class="book-data">
-                <h3>${book.title}</h3>
-                <p>Penulis : ${book.author}</p>
-                <p>Tahun : ${book.year}</p>
-              </div>
-              <button class="undo-button fas fa-undo-alt" onclick=undoBookFromCompleted(${book.id})></button>
-              <button class="trash-button fas fa-trash-alt" onclick="removeBookFromCompleted(${book.id}"></button>
-           </article>
-           `;
-
-           completeBookShelf.innerHTML += el;
-        }
-     }
   }
 }
 
